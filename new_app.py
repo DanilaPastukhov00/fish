@@ -16,42 +16,18 @@ HTML_PAGE = """
   <title>Загрузка файла</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <style>
-    /* === Подключение локальных шрифтов === */
-    @font-face {
-      font-family: 'Cherry Bomb One';
-      src: url('/static/fonts/CherryBombOne-Regular.woff2') format('woff2'),
-           url('/static/fonts/CherryBombOne-Regular.ttf') format('truetype');
-      font-weight: normal;
-      font-style: normal;
-    }
-    @font-face {
-      font-family: 'Rampart One';
-      src: url('/static/fonts/RampartOne-Regular.woff2') format('woff2'),
-           url('/static/fonts/RampartOne-Regular.ttf') format('truetype');
-      font-weight: normal;
-      font-style: normal;
-    }
-    @font-face {
-      font-family: 'Rubik Glitch';
-      src: url('/static/fonts/RubikGlitch-Regular.woff2') format('woff2'),
-           url('/static/fonts/RubikGlitch-Regular.ttf') format('truetype');
-      font-weight: normal;
-      font-style: normal;
-    }
-
-    /* === Базовые стили === */
     html { height: 100%; }
     body {
       background-color: #2590EB;
       height: 100%;
       margin: 0;
-      font-family: Arial, sans-serif; /* 👉 весь сайт Arial */
+      font-family: Arial, sans-serif; /* 👉 базовый шрифт для всего сайта */
     }
     .logo {
       position: absolute;
       top: 20px;
       left: 30px;
-      font-family: 'Cherry Bomb One', Arial, sans-serif; /* 👉 только Fish */
+      font-family: Impact, Haettenschweiler, 'Arial Black', sans-serif; /* 👉 декоративный шрифт для Fish */
       font-size: 36px;
       color: #fff;
       user-select: none;
@@ -143,3 +119,4 @@ def upload_file():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
