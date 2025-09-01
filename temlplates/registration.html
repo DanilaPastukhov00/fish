@@ -1,0 +1,21 @@
+{% extends 'index.html' %}
+{% block body %}
+    <a href="{{ url_for('sections') }}" class="logo">Fish</a>
+    <div class="wrapper">
+        <form class="register-form" method="post" autocomplete="off">
+            <h2>Создать вкладку</h2>
+            <input type="text" name="username" placeholder="Имя вкладки" required>
+            <input type="password" name="password" placeholder="Пароль" required>
+            <button type="submit">Создать</button>
+        </form>
+            {% with messages_reg = get_flashed_messages() %}
+                {% if messages_reg %}
+                    <div class="message-white">
+                    {% for msg in messages_reg %}
+                        <p>{{ msg }}</p>
+                    {% endfor %}
+                    </div>
+                {% endif %}
+            {% endwith %}
+        </div>
+    {% endblock %}

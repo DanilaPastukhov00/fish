@@ -1,0 +1,21 @@
+{% extends 'index.html' %}
+{% block body %}
+    <a href="{{ url_for('sections') }}" class="logo">Fish</a>
+    <div class="wrapper">
+        <div class="view-files">{{ name }}</div>
+        <form class="file-upload" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" onchange="this.form.submit()" />
+            <i class="fa fa-arrow-up"></i>
+        </form>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="message-white">
+                {% for msg in messages %}
+                    <p>{{ msg }}</p>
+                {% endfor %}
+                </div>
+            {% endif %}
+            {% endwith %}
+    <a class="system-link" href="{{ url_for('sent_files', name=name) }}">Файлы</a>
+    </div>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'index.html' %}
+{% block body %}
+    <a href="{{ url_for('sections') }}" class="logo">Fish</a>
+    <div class="content">
+        <h2 class="tabs-title">Вкладки</h2>
+        {% with messages_reg = get_flashed_messages() %}
+            {% if messages_reg %}
+                <div class="message-white", style="text-align: center;">
+                {% for msg in messages_reg %}
+                    <p>{{ msg }}</p>
+                {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+        <form method="get" style="margin-bottom:0;">
+            <input class="search-input" type="text" name="search" placeholder="Поиск вкладок" value="{{ search|default('') }}">
+        </form>
+        <ul class="tabs">
+            {% if top_sections %}
+                {% for section in top_sections %}
+                    <li>
+                        <a href="{{ url_for('password_to_section', name=section[0]) }}">{{ section[0] }}</a>
+                    </li>
+                {% endfor %}
+            {% endif %}
+        </ul>
+        <button class="add-tab-btn" onclick="window.location.href='{{ url_for('registration') }}'">
+            <i class="fa fa-plus"></i> Создать вкладку
+        </button>
+    </div>
+{% endblock %}

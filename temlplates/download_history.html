@@ -1,0 +1,36 @@
+{% extends 'index.html' %}
+{% block body %}
+    <a href="{{ url_for('sections') }}" class="logo">Fish</a>
+    <div class="wrapper">
+        <div class="files-table-container">
+            <table class="files-table">
+                <thead>
+                    <tr>
+                        <th>Название файла</th>
+                        <th>Дата загрузки</th>
+                        <th> </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if versions %}
+                        {% for file_name, date_add_file, version in versions %}
+                        <tr>
+                            <td>{{ file_name }}</td>
+                            <td>{{ date_add_file[:10] }}</td>
+                            <td>
+                                <a href="{{ url_for('download_file', name=section_name, file_name=file_name, version=version) }}">
+                                    <button class="download-btn"><i class="fa fa-download"></i> Скачать</button>
+                                </a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    {% else %}
+                        <tr>
+                            <td colspan="3" style="text-align:center;color:#aaa;">Нет версий файла</td>
+                        </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

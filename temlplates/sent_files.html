@@ -1,0 +1,32 @@
+{% extends 'index.html' %}
+{% block body %}
+    <a href="{{ url_for('sections') }}" class="logo">Fish</a>
+    <div class="wrapper">
+        <div class="files-table-container">
+            <table class="files-table">
+                <thead>
+                    <tr>
+                        <th>Название файла</th>
+                        <th> </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for file_name, version in files %}
+                    <tr>
+                        <td>{{ file_name }}</td>
+                        <td>
+                            <a href="{{ url_for('download_history', name=section_name, file_name=file_name) }}">
+                                <button class="download-btn">История файла</button>
+                            </a>
+                        </td>
+                    </tr>
+                    {% else %}
+                    <tr>
+                        <td colspan="2" style="text-align:center;color:#aaa;">Нет файлов</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
